@@ -1,21 +1,27 @@
+import traceback
+
 from flask import Flask
 import config
-from exts import db
+from blueprints.qa import qa
+from blueprints.auth import auth
 from models import UserModel
-from blueprints.auth import bp as auth_bp
-from blueprints.qa import bp as qa_bp
+
+from exts import db
+from flask_migrate import Migrate
 
 app = Flask(__name__)
+# 导入自定义配置
 app.config.from_object(config)
-
+# 数据库初始化
 db.init_app(app)
 
-app.register_blueprint(qa_bp)
-app.register_blueprint(auth_bp)
 
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
+# 数据库迁移
+migrate = Migrate(app, db)
+# 蓝图注册
+app.register_blueprint(qa)
+app.register_blueprint(auth)
 
+# 蓝图  电影模块，音乐模块，读书模块
 if __name__ == '__main__':
     app.run()

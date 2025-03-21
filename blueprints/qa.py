@@ -1,7 +1,7 @@
 from flask import Blueprint
 
-bp = Blueprint("qa", __name__, "/")
+qa = Blueprint("qa", __name__, "/")
 
-@bp.route("/")
+@qa.route("/")
 def index():
     pass
