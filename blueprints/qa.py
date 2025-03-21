@@ -4,4 +4,4 @@ qa = Blueprint("qa", __name__, "/")
 
 @qa.route("/")
 def index():
-    pass
+    return "这是首页！"
