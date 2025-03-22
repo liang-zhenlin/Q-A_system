@@ -10,3 +10,9 @@ DATABASE="python_projects"
 DB_URI  = f"mysql+pymysql://{USERNAME}:{PASSWORD}@{HOST_NAME}:{PORT}/{DATABASE}?charset=utf8mb4"
 SQLALCHEMY_DATABASE_URI = DB_URI
 
+MAIL_SERVER="smtp.qq.com"
+MAIL_USE_SSL=True
+MAIL_PORT=465
+MAIL_USERNAME="我的邮箱"
+MAIL_PASSWORD="邮箱授权码"
+MAIL_DEFAULT_SENDER="我的邮箱"
